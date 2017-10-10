@@ -19,15 +19,16 @@
     <!--左上流量上下行图表-->
     <div id="traffic" style="width: 28%; height: 33%;position: absolute;top:5%;left:0;"></div>
     <!--data3图表-->
-    <div id="data3" style="width: 25.5%; height: 40%;position: absolute;top:30%;left:0;"></div>
+    <div id="data3" style="width: 25.5%; height: 47%;position: absolute;top:30%;left:0;"></div>
     <!--data4图表-->
-    <div id="data4" style="width: 37.5%; height: 25%;position: absolute;bottom:5%;left:0;"></div>
+    <div id="data4" style="width: 37.5%; height: 23%;position: absolute;bottom:0;left:0;"></div>
     <!--右上流量上下行图表-->
     <div id="data5" style="width: 25%; height: 30%;position: absolute;top:13%;right:0;"></div>
     <!--data3图表-->
     <div id="data6" style="width: 25%; height: 60%;position: absolute;bottom:-5%;right:0;"></div>
     <!--data4图表-->
     <!--<div id="data7" style="width: 30%; height: 25%;position: absolute;bottom:5%;right:0;"></div>-->
+    <button id="BtnBar" style="display: none;" onclick="BtnBar()"></button>
 </body>
 
 <script src="jquery.min.js"></script>
@@ -2630,7 +2631,57 @@
             data4.resize();
             data5.resize();
             data6.resize();
-            data7.resize();
+//            data7.resize();
         });
 </script>
+
+
+<!--<script>-->
+    <!--$("#BtnBar").click();-->
+    <!--function BtnBar(){-->
+        <!--requestFullScreen(document.documentElement);-->
+    <!--}-->
+
+    <!--//        $('#BtnBar).click(function(){-->
+    <!--//            console.log('123123')-->
+
+    <!--//        BtnBar.onclick = function(){-->
+    <!--//            console.log('123123');-->
+    <!--////            requestFullScreen(document.documentElement);-->
+    <!--//        };-->
+    <!--//    });-->
+    <!--// 浏览器全屏-->
+    <!--function requestFullScreen(element) {-->
+        <!--// 判断各种浏览器，找到正确的方法-->
+        <!--var requestMethod = element.requestFullScreen || //W3C-->
+            <!--element.webkitRequestFullScreen ||  //Chrome等-->
+            <!--element.mozRequestFullScreen || //FireFox-->
+            <!--element.msRequestFullScreen; //IE11-->
+        <!--if (requestMethod) {-->
+            <!--requestMethod.call(element);-->
+        <!--}-->
+        <!--else if (typeof window.ActiveXObject !== "undefined") {//for Internet Explorer-->
+            <!--var wscript = new ActiveXObject("WScript.Shell");-->
+            <!--if (wscript !== null) {-->
+                <!--wscript.SendKeys("{F11}");-->
+            <!--}-->
+        <!--}-->
+    <!--}-->
+    <!--function exitFull() {-->
+        <!--// 判断各种浏览器，找到正确的方法-->
+        <!--var exitMethod = document.exitFullscreen || //W3C-->
+            <!--document.mozCancelFullScreen ||  //Chrome等-->
+            <!--document.webkitExitFullscreen || //FireFox-->
+            <!--document.webkitExitFullscreen; //IE11-->
+        <!--if (exitMethod) {-->
+            <!--exitMethod.call(document);-->
+        <!--}-->
+        <!--else if (typeof window.ActiveXObject !== "undefined") {//for Internet Explorer-->
+            <!--var wscript = new ActiveXObject("WScript.Shell");-->
+            <!--if (wscript !== null) {-->
+                <!--wscript.SendKeys("{F11}");-->
+            <!--}-->
+        <!--}-->
+    <!--}-->
+<!--</script>-->
 </html>
