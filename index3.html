@@ -13,22 +13,23 @@
         }
     </style>
 </head>
-<body style="width: 100%; height: 100%; background: #090c2b;">
+<body style="width: 100%; height: 100%; background: #070252;">
+    <div id="title" style="width: 30%;height: 20%;background: url(./title.png) no-repeat;background-size: contain;position: fixed;top:0;left: 50%;margin-left:-15%;z-index: 999;"></div>
     <!-- 地图构建 -->
     <div id="map" style="width: 100%; height: 100%;position: absolute;top:0;left:0;"></div>
     <!--左上流量上下行图表-->
-    <div id="traffic" style="width: 28%; height: 33%;position: absolute;top:5%;left:0;"></div>
+    <div id="traffic" style="width: 28%; height: 33%;position: absolute;top:3%;left:0;"></div>
     <!--data3图表-->
-    <div id="data3" style="width: 25.5%; height: 47%;position: absolute;top:30%;left:0;"></div>
+    <div id="data3" style="width: 32.5%; height: 47%;position: absolute;top:27%;left:0;"></div>
     <!--data4图表-->
-    <div id="data4" style="width: 37.5%; height: 23%;position: absolute;bottom:0;left:0;"></div>
+    <div id="data4" style="width: 37.5%; height: 23%;position: absolute;bottom:3%;left:0;"></div>
     <!--右上流量上下行图表-->
     <div id="data5" style="width: 25%; height: 30%;position: absolute;top:13%;right:0;"></div>
     <!--data3图表-->
     <div id="data6" style="width: 25%; height: 60%;position: absolute;bottom:-5%;right:0;"></div>
     <!--data4图表-->
     <!--<div id="data7" style="width: 30%; height: 25%;position: absolute;bottom:5%;right:0;"></div>-->
-    <button id="BtnBar" style="display: none;" onclick="BtnBar()"></button>
+    <!--<button id="BtnBar" style="display: none;" onclick="BtnBar()"></button>-->
 </body>
 
 <script src="jquery.min.js"></script>
@@ -1936,13 +1937,16 @@
             //        backgroundColor: '#404a59',
             //        backgroundColor: '#404a59',
             title: {
-                text: ' 中 德 宏 泰 态 势 感 知 ',
+//                text: ' 中   德   宏   泰   态   势   感   知 ',
                 left: 'center',
-                top: '5%',
+                top: '0%',
                 textStyle: {
-                    color: '#fff',
-                    fontSize: 22,
-                    verticalAlign: 'middle'
+                    fontFamily: ['Arial Rounded MT Bold', 'Helvetica Rounded', 'Arial', 'sans-serif'],
+                    fontStyle: "oblique",
+                    color: '#ffd85d',
+                    fontSize: 45,
+                    verticalAlign: 'middle',
+                    textTransform: 'uppercase',
                 }
             },
             legend: {
@@ -1956,11 +1960,12 @@
                 }
             },
             geo: {
-                zoom: 1,
+//                zoom: 0.95,
+                zoom: 0.8,
                 map: 'china',
                 label: {
                     emphasis: {
-                        show: false
+                        show: false  // 是否显示省会名
                     }
                 },
                 roam: false,
@@ -1971,8 +1976,10 @@
                         //                    borderColor: '#404a59'
                         borderColor: '#ffffff'
                     },
+                    // 地图区域块颜色
                     emphasis: {
-                        areaColor: '#2a333d'
+                        areaColor: '#005f97'
+//                        areaColor: '#2a333d'
                     }
                 }
             },
@@ -2050,7 +2057,7 @@
                 }
             },
             grid: {
-                left: '1%',
+                left: '5%',
                 right: '4%',
                 bottom: '6%',
                 top:30,
@@ -2216,14 +2223,14 @@
             legend: {
                 show: true,
                 bottom: 5,
-                left: 16,
+                left: '6%',
                 itemWidth: 14,
                 itemHeight: 10,
                 itemGap: 48,
-                width: 680,
-                height: 80,
+                width: 550,
+                height: 90,
                 align: 'auto',
-                data: ['06:00','07:00','08:00','09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00','19:00'],
+                data: ['07:00','08:00','09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00'],
                 textStyle: {
                     color: '#fff',
                     fontSize: 12,
@@ -2236,7 +2243,9 @@
                 color: '#4ac7f5',
                 fontSize: 12,
             },
+            // 提示栏
             visualMap: {
+                show: false,
                 min: 0,
                 max: 100,
                 calculable: false,
@@ -2253,7 +2262,7 @@
             },
             radar: {
 //                center: ['500', '350'],//中心（圆心）坐标
-                radius: 100,//半径
+                radius: 105,//半径
                 startAngle: 90,//坐标系起始角度，也就是第一个指示器轴的角度。
                 nameGap: 16,//指示器名称和指示器轴的距离。
                 splitNumber: 4,//指示器轴的分割段数
@@ -2302,8 +2311,7 @@
                     },
                 },
                 data: [
-                    {name: '06:00',value: [100,80,30,30,40,80]},
-                    {name: '07:00',value: [95,75,35,35,45,75]},
+                    {name: '07:00',value: [90,72,40,40,50,70]},
                     {name: '08:00',value: [90,72,40,40,50,70]},
                     {name: '09:00',value: [85,70,45,45,55,65]},
                     {name: '10:00',value: [80,68,50,50,60,60]},
@@ -2314,12 +2322,10 @@
                     {name: '15:00',value: [55,55,75,75,85,35]},
                     {name: '16:00',value: [50,52,80,80,90,30]},
                     {name: '17:00',value: [45,50,85,85,95,25]},
-                    {name: '18:00',value: [40,48,90,90,100,20]},
-                    {name: '19:00',value: [35,45,95,93,95,15]}
+                    {name: '18:00',value: [45,50,85,85,95,25]},
                 ]
             }
         };
-
         data3.setOption(data3_option);
 
 //        data4
@@ -2492,7 +2498,7 @@
                 }, {
                     value: 9,
                     name: '公共'
-                } ]
+                }]
             }, {
                 name: '分组',
                 type: 'pie',
@@ -2624,6 +2630,141 @@
         };
         data6.setOption(data6_option);
 
+
+
+        var oneDay = 24 * 3600 * 1000;
+
+
+        setInterval(function () {
+            var traff_data1 = [];
+            var traff_data2 = [];
+            var data3_data1 = [];
+            var data3_data2 = [];
+//            var traff_time = [];
+
+
+            for (var i = 1; i <= 10; i ++) {
+                addData();
+            }
+            function addData() {
+                var number1 = Math.random() * 0.42 * 10 ;
+                var number10 = Math.random() * 0.42 * 10 * 25 ;
+                var number2 = Math.random() * 0.35 * 10 ;
+                var number20 = Math.random() * 0.35 * 10 * 25 ;
+//                var nowtime = new Date();
+//                var base = +new Date(nowtime);
+//                var number3 = base + 2000;
+                traff_data1.push(number1.toFixed(2));
+                data3_data1.push(number10.toFixed(2));
+                traff_data2.push(number2.toFixed(2));
+                data3_data2.push(number20.toFixed(2));
+//                traff_time.push(number3);
+            }
+
+//            console.log(traff_time);
+            traffic.setOption({
+                series: [
+                    {
+                        data: traff_data1
+                    },
+                    {
+                        data: traff_data2
+                    }
+                ]
+            });
+            data3.setOption({
+                series: [
+                    {
+                        data: [
+                            {name: '07:00',value: data3_data1},
+                            {name: '08:00',value: data3_data2},
+                            {name: '09:00',value: [85,70,45,45,55,65]},
+                            {name: '10:00',value: [80,68,50,50,60,60]},
+                            {name: '11:00',value: [75,65,55,55,65,55]},
+                            {name: '12:00',value: [70,62,60,60,70,50]},
+                            {name: '13:00',value: [65,60,65,65,75,45]},
+                            {name: '14:00',value: [60,58,70,70,80,40]},
+                            {name: '15:00',value: [55,55,75,75,85,35]},
+                            {name: '16:00',value: [50,52,80,80,90,30]},
+                            {name: '17:00',value: [45,50,85,85,95,25]},
+                            {name: '18:00',value: [45,50,85,85,95,25]},
+                        ]
+                    }
+                ]
+            });
+            data4.setOption({
+                series: [
+                    {
+                        data: data3_data1
+                    },{
+                        data: data3_data2
+                    }
+                ]
+            });
+            data5.setOption({
+                series: [
+                    {
+                        data: [{
+                            value: data3_data1[0],
+                            name: 'APP事业部'
+                        }, {
+                            value: data3_data1[1],
+                            name: '家长事业部'
+                        }, {
+                            value: data3_data1[2],
+                            name: 'TV事业部'
+                        }, {
+                            value: data3_data1[3],
+                            name: '公共'
+                        }]
+                    },{
+                        data: [{
+                            value: data3_data2[0],
+                            name: '2D线'
+                        }, {
+                            value: data3_data2[1],
+                            name: '3D线'
+                        }, {
+                            value: data3_data2[2],
+                            name: '宝宝产品大全'
+                        }, {
+                            value: data3_data2[3],
+                            name: '大全产品线'
+                        }, {
+                            value: data3_data2[4],
+                            name: 'TV事业部'
+                        }, {
+                            value: data3_data2[5],
+                            name: '公共'
+                        }]
+                    }
+                ]
+            });
+            data6.setOption({
+                series: [
+                    {
+                        data: [
+                            {value:data3_data1[0], name:'直达', selected:true},
+                            {value:data3_data1[1], name:'营销广告'},
+                            {value:data3_data1[2], name:'搜索引擎'}
+                        ]
+                    },{
+                        data: [
+                            {value:data3_data2[0], name:'直达'},
+                            {value:data3_data2[1], name:'邮件营销'},
+                            {value:data3_data2[2], name:'联盟广告'},
+                            {value:data3_data2[3], name:'视频广告'},
+                            {value:data3_data2[4], name:'百度'},
+                            {value:data3_data2[5], name:'谷歌'},
+                            {value:data3_data2[6], name:'必应'},
+                            {value:data3_data2[7], name:'其他'}
+                        ]
+                    }
+                ]
+            })
+        }, 2000);
+
+
         window.addEventListener("resize", function () {
             map.resize();
             traffic.resize();
@@ -2634,54 +2775,4 @@
 //            data7.resize();
         });
 </script>
-
-
-<!--<script>-->
-    <!--$("#BtnBar").click();-->
-    <!--function BtnBar(){-->
-        <!--requestFullScreen(document.documentElement);-->
-    <!--}-->
-
-    <!--//        $('#BtnBar).click(function(){-->
-    <!--//            console.log('123123')-->
-
-    <!--//        BtnBar.onclick = function(){-->
-    <!--//            console.log('123123');-->
-    <!--////            requestFullScreen(document.documentElement);-->
-    <!--//        };-->
-    <!--//    });-->
-    <!--// 浏览器全屏-->
-    <!--function requestFullScreen(element) {-->
-        <!--// 判断各种浏览器，找到正确的方法-->
-        <!--var requestMethod = element.requestFullScreen || //W3C-->
-            <!--element.webkitRequestFullScreen ||  //Chrome等-->
-            <!--element.mozRequestFullScreen || //FireFox-->
-            <!--element.msRequestFullScreen; //IE11-->
-        <!--if (requestMethod) {-->
-            <!--requestMethod.call(element);-->
-        <!--}-->
-        <!--else if (typeof window.ActiveXObject !== "undefined") {//for Internet Explorer-->
-            <!--var wscript = new ActiveXObject("WScript.Shell");-->
-            <!--if (wscript !== null) {-->
-                <!--wscript.SendKeys("{F11}");-->
-            <!--}-->
-        <!--}-->
-    <!--}-->
-    <!--function exitFull() {-->
-        <!--// 判断各种浏览器，找到正确的方法-->
-        <!--var exitMethod = document.exitFullscreen || //W3C-->
-            <!--document.mozCancelFullScreen ||  //Chrome等-->
-            <!--document.webkitExitFullscreen || //FireFox-->
-            <!--document.webkitExitFullscreen; //IE11-->
-        <!--if (exitMethod) {-->
-            <!--exitMethod.call(document);-->
-        <!--}-->
-        <!--else if (typeof window.ActiveXObject !== "undefined") {//for Internet Explorer-->
-            <!--var wscript = new ActiveXObject("WScript.Shell");-->
-            <!--if (wscript !== null) {-->
-                <!--wscript.SendKeys("{F11}");-->
-            <!--}-->
-        <!--}-->
-    <!--}-->
-<!--</script>-->
 </html>
